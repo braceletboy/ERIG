@@ -1,0 +1,6 @@
+extends: ../main.yaml
+datasets:
+- imagenet-1k-wds
+metrics:
+- linv
+- complex

@@ -1,0 +1,18 @@
+datasets:
+- imagenet-1k-wds
+models:
+- resnet18
+methods:
+- erig
+num_samples: 2
+metrics:
+- isc
+method_options:
+  erig_num_steps: 4
+eval_batch_size: 1
+gradient_free_metric_batch_size: 1
+metric_defaults:
+  local:
+    local_batch_size: 1
+  linv:
+    linv_batch_size: 1

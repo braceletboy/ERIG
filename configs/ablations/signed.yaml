@@ -1,0 +1,7 @@
+extends: ../main.yaml
+methods:
+- erig
+- serig
+datasets:
+- imagenet-1k-wds
+- imagenet-s

@@ -1,0 +1,126 @@
+/* Section navigation stays consistent in reading and presentation modes. */
+html{scroll-padding-top:0}
+.site-header{height:auto;min-height:108px;display:grid;grid-template-columns:1fr auto;gap:8px 24px;padding:12px 4vw 0}
+.site-header>nav:not(.section-nav){justify-content:flex-end}
+.site-header .section-nav{grid-column:1/-1;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px;width:100%;align-items:stretch}
+.section-nav a{display:flex;align-items:center;justify-content:center;gap:10px;padding:8px 5px;border-bottom:3px solid transparent;text-decoration:none;color:var(--muted);font-size:13px;white-space:nowrap}
+.section-nav a:hover{background:var(--surface-soft)}
+.section-nav a[aria-current]{color:var(--primary);border-bottom-color:var(--primary);background:var(--pale)}
+.section-progress{font-size:10px;font-weight:400;font-variant-numeric:tabular-nums}
+.chapter{scroll-margin-top:125px}
+.slide-jump{display:flex;align-items:center;gap:7px;font-size:12px;white-space:nowrap}
+.slide-jump input{width:52px;padding:5px 3px;border:1px solid #a5b4fc;border-radius:5px;background:#fff;color:#111827;font:600 14px var(--sans);text-align:center;font-variant-numeric:tabular-nums}
+.slide-jump input:focus-visible{outline:3px solid #a5f3fc;outline-offset:2px}
+.presentation-controls .slide-jump span{min-width:0;font-size:12px}
+.presentation-controls #slide-position{min-width:0;max-width:300px;overflow:hidden;text-overflow:ellipsis}
+.equation-stack{margin-top:28px}
+.single-figure{max-width:600px;margin:24px auto 0}
+.figure-explanation{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:40px;margin-top:28px}
+.figure-explanation .section-intro{margin-top:0}
+.math-slide>.chapter-inner>p:not(.fine-print){font-size:18px;color:var(--muted);margin-top:22px}
+/* A bounded content budget replaces whole-slide scaling on laptops. */
+@media screen and (min-width:760px) and (min-height:600px){
+  body.presenting{height:100dvh;display:grid;grid-template-rows:auto minmax(0,1fr) auto}
+  body.presenting .site-header{position:relative;top:auto}
+  body.presenting main{min-height:0}
+  body.presenting main>.chapter.is-active{height:100%;min-height:0;overflow:visible;border-bottom:0}
+  body.presenting .chapter-inner,body.presenting .hero .chapter-inner{max-width:1280px;height:auto;padding:20px 4vw 12px;transform:none}
+  body.presenting .section-label{font-size:11px;margin-bottom:12px}
+  body.presenting h2{font-size:clamp(28px,2.65vw,38px);line-height:1.14;max-width:none}
+  body.presenting h1{font-size:clamp(30px,3.1vw,44px);line-height:1.15;margin-top:18px}
+  body.presenting h3{font-size:18px;line-height:1.3}
+  body.presenting .section-intro,body.presenting .lead{font-size:17px;line-height:1.55;margin-top:18px;max-width:1100px}
+  body.presenting .paper-columns,body.presenting .scope-grid{gap:28px;margin-top:22px}
+  body.presenting .paper-columns>p,body.presenting .paper-columns article>p{font-size:15px;line-height:1.55}
+  body.presenting .steps{margin-top:24px;gap:28px}
+  body.presenting .steps h3{margin:10px 0}
+  body.presenting .steps p{font-size:15px;line-height:1.55}
+  body.presenting .step-number{width:30px;height:30px;font-size:16px}
+  body.presenting .equation,body.presenting .theory-columns .equation{font-size:24px;margin:16px 0;padding:4px 2px}
+  body.presenting .equation .katex-display{margin:.25em 0}
+  body.presenting .equation-stack{margin-top:18px}
+  body.presenting .theorem-equation.equation{font-size:28px;margin:16px 0;padding:8px}
+  body.presenting .theory-columns{grid-template-columns:1fr 1fr}
+  body.presenting .theory-columns article{padding-top:14px}
+  body.presenting .method-note{margin-top:22px;padding:16px 20px}
+  body.presenting .method-note p{font-size:15px;line-height:1.55}
+  body.presenting .fine-print{font-size:12px;line-height:1.5;margin-top:18px}
+  body.presenting .actions{margin-top:22px}
+  body.presenting .paper-authors{font-size:16px;margin-top:20px}
+  body.presenting .paper-affiliations{font-size:13px}
+  body.presenting .tikz-figure{padding:12px;margin-top:18px}
+  body.presenting .tikz-figure>svg{max-height:calc(100dvh - 360px);padding:8px}
+  body.presenting .tikz-figure figcaption{font-size:12px;line-height:1.5;margin-top:8px}
+  body.presenting .single-figure{margin:18px auto 0;max-width:760px}
+  body.presenting .single-figure img{height:calc(100dvh - 370px);width:100%;object-fit:contain;padding:8px}
+  body.presenting .figure-explanation{margin-top:18px;gap:30px}
+  body.presenting .figure-explanation img{height:calc(100dvh - 375px);object-fit:contain;padding:8px}
+  body.presenting .paper-figure figcaption{font-size:12px;line-height:1.4;margin-top:8px}
+  body.presenting .paper-figure figcaption strong{font-size:13px}
+  body.presenting .paper-note{font-size:14px;padding:14px 16px;margin-top:18px}
+  body.presenting .split-layout{gap:30px}
+  body.presenting .temperature-demo{padding:16px 20px}
+  body.presenting .temperature-demo svg{height:165px;margin:12px 0}
+  body.presenting .temperature-demo input{margin:12px 0 8px}
+  body.presenting .demo-bottom{margin-top:12px;padding-top:12px}
+  body.presenting .demo-bottom p{font-size:11px!important}
+  body.presenting .scope-grid p{font-size:14px;line-height:1.55}
+  body.presenting .dataset-row{padding:12px 0}
+  body.presenting .metric-summary{margin-top:28px;gap:30px}
+  body.presenting .metric-summary p{font-size:16px;line-height:1.6}
+  body.presenting .evidence-stats{margin:22px 0}
+  body.presenting .evidence-stats>div{padding-top:14px;padding-bottom:14px}
+  body.presenting .evidence-stats strong{font-size:48px}
+  body.presenting .results-table-wrap{margin-top:22px}
+  body.presenting .results-table th,body.presenting .results-table td{padding:12px}
+  body.presenting .ablation-grid{max-width:none;gap:26px;margin-top:22px}
+  body.presenting .ablation-grid img{max-height:calc(100dvh - 385px);object-fit:contain;padding:8px}
+  body.presenting .closing .site-footer{margin-top:22px;padding-top:16px}
+  body.presenting .site-footer strong{font-size:17px}
+  body.presenting .presentation-controls{position:static;transform:none;justify-self:center;max-width:95vw;margin:6px auto 10px;box-shadow:none;gap:12px;padding:6px 10px}
+  body.presenting #copy-status{position:fixed}
+}
+@media screen and (min-width:760px) and (max-width:1100px){
+  .section-nav a{font-size:12px;gap:6px}
+  body.presenting .chapter-inner{padding-left:4vw;padding-right:4vw}
+  body.presenting #stability-bounds .paper-columns{grid-template-columns:1fr;gap:12px}
+  body.presenting #stability-bounds .theory-columns article{display:grid;grid-template-columns:190px 1fr;gap:0 16px;align-items:center}
+  body.presenting #stability-bounds .theory-columns article p{grid-column:2}
+  body.presenting #stability-bounds .equation{margin:6px 0}
+}
+@media(max-width:759px){
+  .site-header{padding:10px 18px 0;gap:8px}
+  .site-header .section-nav{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .site-header .section-nav>a,body.presenting .site-header .section-nav>a{display:flex;font-size:11px;gap:5px;padding:6px 3px}
+  .chapter{scroll-margin-top:155px}
+  .figure-explanation{grid-template-columns:1fr}
+  .presentation-controls #slide-position{display:none}
+  .presentation-controls{gap:6px}
+}
+@media print{
+  .single-figure{max-width:600px;margin-top:16px}
+  .single-figure img{max-height:390px;object-fit:contain}
+  .figure-explanation{margin-top:18px;gap:25px}
+  .figure-explanation img{max-height:320px;object-fit:contain}
+  .figure-explanation .section-intro{font-size:13px}
+  .figure-explanation .paper-note{font-size:12px}
+  .math-slide>.chapter-inner>p:not(.fine-print){font-size:13px}
+}
+
+.protocol-content,.dataset-content,.outlook-content{margin-top:24px;max-width:1000px}
+.protocol-content p,.outlook-content p{font-size:18px;line-height:1.65;color:var(--muted)}
+.protocol-content p+p{margin-top:18px}
+.dataset-content h3{display:none}
+.conclusion-points{grid-template-columns:1fr 1fr}
+@media screen and (min-width:760px) and (min-height:600px){
+  body.presenting #stability .theory-columns{grid-template-columns:1fr 1fr}
+  body.presenting .protocol-content p,body.presenting .outlook-content p{font-size:18px;line-height:1.6}
+  body.presenting .dataset-content .dataset-row{font-size:18px;padding:12px 0}
+  body.presenting .dataset-content .dataset-row span{font-size:15px}
+}
+@media(max-width:759px){.conclusion-points{grid-template-columns:1fr}}
+@media print{.protocol-content p,.outlook-content p{font-size:14px}}
+
+@media screen and (min-width:760px) and (min-height:600px){
+  body.presenting #paper-temperature .ablation-grid{margin-top:12px}
+}

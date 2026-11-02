@@ -1,0 +1,47 @@
+extends: ../main.yaml
+methods:
+- erig
+models:
+- resnet101
+- vit
+- eva02
+datasets:
+- imagenet-1k-wds
+- imagenet-s
+variants:
+- name: tau_0.001
+  method_options:
+    erig_exp_temperature: 0.001
+- name: tau_0.003
+  method_options:
+    erig_exp_temperature: 0.003
+- name: tau_0.01
+  method_options:
+    erig_exp_temperature: 0.01
+- name: tau_0.03
+  method_options:
+    erig_exp_temperature: 0.03
+- name: tau_0.1
+  method_options:
+    erig_exp_temperature: 0.1
+- name: tau_0.3
+  method_options:
+    erig_exp_temperature: 0.3
+- name: tau_3
+  method_options:
+    erig_exp_temperature: 3
+- name: tau_10
+  method_options:
+    erig_exp_temperature: 10
+- name: tau_30
+  method_options:
+    erig_exp_temperature: 30
+- name: tau_100
+  method_options:
+    erig_exp_temperature: 100
+- name: tau_300
+  method_options:
+    erig_exp_temperature: 300
+- name: tau_1000
+  method_options:
+    erig_exp_temperature: 1000

@@ -1,0 +1,11 @@
+extends: ../main.yaml
+methods:
+- erig
+- aerig
+datasets:
+- imagenet-1k-wds
+- imagenet-s
+method_options:
+  aerig_tau_schedule: exponential
+  aerig_tau_start: 10000000000.0
+  aerig_tau_end: 1e-10

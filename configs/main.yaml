@@ -1,0 +1,11 @@
+datasets:
+- imagenet-1k-wds
+- imagenet-s
+- oxford-iiit-pet
+methods:
+- ig
+- idgi
+- big
+- gig
+- smoothgrad
+- erig

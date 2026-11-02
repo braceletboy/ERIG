@@ -1,0 +1,54 @@
+extends: ../main.yaml
+datasets:
+- imagenet-1k-wds
+methods:
+- smoothgrad
+metrics:
+- robust
+- linv
+variants:
+- name: sg_ig
+  method_options:
+    smoothgrad_base_method: ig
+    smoothgrad_num_samples: 10
+    smoothgrad_base_num_steps: 20
+    smoothgrad_base_method_compute_config:
+      ig_baseline: zero
+      ig_num_steps: 200
+- name: sg_idgi
+  method_options:
+    smoothgrad_base_method: idgi
+    smoothgrad_num_samples: 10
+    smoothgrad_base_num_steps: 20
+    smoothgrad_base_method_compute_config:
+      idgi_baseline: zero
+      idgi_num_steps: 200
+- name: sg_big
+  method_options:
+    smoothgrad_base_method: big
+    smoothgrad_num_samples: 10
+    smoothgrad_base_num_steps: 20
+    smoothgrad_base_method_compute_config:
+      big_num_steps: 200
+      big_max_sigma: 50.0
+      big_use_sqrt: false
+      big_gaussian_grad_step: 0.01
+- name: sg_gig
+  method_options:
+    smoothgrad_base_method: gig
+    smoothgrad_num_samples: 10
+    smoothgrad_base_num_steps: 20
+    smoothgrad_base_method_compute_config:
+      gig_baseline: zero
+      gig_num_segments: 200
+      gig_percentile: 0.25
+      gig_max_alpha_dist: 1.0
+- name: sg_erig
+  method_options:
+    smoothgrad_base_method: erig
+    smoothgrad_num_samples: 10
+    smoothgrad_base_num_steps: 20
+    smoothgrad_base_method_compute_config:
+      erig_baseline: zero
+      erig_num_steps: 200
+      erig_exp_temperature: 3.0

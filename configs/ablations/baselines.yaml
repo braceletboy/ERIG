@@ -1,0 +1,46 @@
+extends: ../main.yaml
+methods:
+- erig
+models:
+- resnet101
+- eva02
+datasets:
+- imagenet-1k-wds
+- imagenet-s
+variants:
+- name: zero
+  method_options:
+    erig_baseline: zero
+- name: ones
+  method_options:
+    erig_baseline: ones
+- name: random_color
+  method_options:
+    erig_baseline: random_color
+- name: channel_mean
+  method_options:
+    erig_baseline: channel_mean
+- name: channel_median
+  method_options:
+    erig_baseline: channel_median
+- name: uniform_noise
+  method_options:
+    erig_baseline: uniform_noise
+- name: gaussian_noise
+  method_options:
+    erig_baseline: gaussian_noise
+- name: blur
+  method_options:
+    erig_baseline: blur
+- name: pixel_permutation
+  method_options:
+    erig_baseline: pixel_permutation
+- name: window_permutation
+  method_options:
+    erig_baseline: window_permutation
+- name: scramble_magnitude
+  method_options:
+    erig_baseline: scramble_magnitude
+- name: scramble_phase
+  method_options:
+    erig_baseline: scramble_phase

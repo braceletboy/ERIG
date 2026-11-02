@@ -1,0 +1,181 @@
+seed: 42
+num_samples: 1000
+device: cuda
+dataset_defaults:
+  imagenet-1k-wds:
+    eval_batch_size: 32
+    gradient_free_metric_batch_size: 128
+    input_key: jpg
+    metrics:
+    - isc
+    - aic
+    - del
+    - robust
+    - linv
+    models:
+    - resnet101
+    - mobilenetv4
+    - efficientnet
+    - vit
+    - eva02
+    - deit3
+    batch_sizes:
+      eva02:
+        eval_batch_size: 32
+        gradient_free_metric_batch_size: 1024
+        gradient_metric_batch_size: 32
+      vit:
+        eval_batch_size: 32
+        gradient_free_metric_batch_size: 1024
+        gradient_metric_batch_size: 32
+      deit3:
+        eval_batch_size: 32
+        gradient_free_metric_batch_size: 1024
+        gradient_metric_batch_size: 32
+      resnet101:
+        eval_batch_size: 64
+        gradient_free_metric_batch_size: 1024
+        gradient_metric_batch_size: 64
+      mobilenetv4:
+        eval_batch_size: 256
+        gradient_free_metric_batch_size: 2048
+        gradient_metric_batch_size: 256
+      efficientnet:
+        eval_batch_size: 32
+        gradient_free_metric_batch_size: 512
+        gradient_metric_batch_size: 32
+  imagenet-s:
+    eval_batch_size: 32
+    gradient_free_metric_batch_size: 128
+    input_key: image
+    metrics:
+    - local
+    models:
+    - resnet101
+    - mobilenetv4
+    - efficientnet
+    - vit
+    - eva02
+    - deit3
+    batch_sizes:
+      eva02:
+        eval_batch_size: 32
+        gradient_free_metric_batch_size: 1024
+        gradient_metric_batch_size: 32
+      vit:
+        eval_batch_size: 32
+        gradient_free_metric_batch_size: 1024
+        gradient_metric_batch_size: 32
+      deit3:
+        eval_batch_size: 32
+        gradient_free_metric_batch_size: 1024
+        gradient_metric_batch_size: 32
+      resnet101:
+        eval_batch_size: 64
+        gradient_free_metric_batch_size: 1024
+        gradient_metric_batch_size: 64
+      mobilenetv4:
+        eval_batch_size: 256
+        gradient_free_metric_batch_size: 2048
+        gradient_metric_batch_size: 256
+      efficientnet:
+        eval_batch_size: 32
+        gradient_free_metric_batch_size: 512
+        gradient_metric_batch_size: 32
+  oxford-iiit-pet:
+    eval_batch_size: 32
+    gradient_free_metric_batch_size: 128
+    input_key: image
+    metrics:
+    - isc
+    - aic
+    - del
+    - local
+    - robust
+    - linv
+    models:
+    - resnet50
+    - mobilenetv2
+    - convnext
+    - vit
+    - dinov2
+    batch_sizes:
+      resnet50:
+        eval_batch_size: 256
+        gradient_free_metric_batch_size: 512
+        gradient_metric_batch_size: 256
+      convnext:
+        eval_batch_size: 64
+        gradient_free_metric_batch_size: 256
+        gradient_metric_batch_size: 64
+      mobilenetv2:
+        eval_batch_size: 256
+        gradient_free_metric_batch_size: 256
+        gradient_metric_batch_size: 256
+      dinov2:
+        eval_batch_size: 256
+        gradient_free_metric_batch_size: 512
+        gradient_metric_batch_size: 256
+      vit:
+        eval_batch_size: 128
+        gradient_free_metric_batch_size: 512
+        gradient_metric_batch_size: 128
+method_defaults:
+  ig:
+    ig_baseline: zero
+    ig_num_steps: 200
+  idgi:
+    idgi_baseline: zero
+    idgi_num_steps: 200
+  erig:
+    erig_baseline: zero
+    erig_num_steps: 200
+    erig_exp_temperature: 3.0
+  big:
+    big_num_steps: 200
+    big_max_sigma: 50.0
+    big_use_sqrt: false
+    big_gaussian_grad_step: 0.01
+  gig:
+    gig_baseline: zero
+    gig_num_segments: 200
+    gig_percentile: 0.25
+    gig_max_alpha_dist: 1.0
+  smoothgrad:
+    smoothgrad_num_samples: 50
+    smoothgrad_noise_level: 0.1
+    smoothgrad_base_method: vg
+    smoothgrad_base_num_steps: 20
+    smoothgrad_base_method_compute_config: {}
+  aerig:
+    aerig_baseline: zero
+    aerig_num_steps: 200
+    aerig_tau_schedule: linear
+    aerig_tau_start: 3.0
+    aerig_tau_end: 3.0
+  serig:
+    serig_baseline: zero
+    serig_num_steps: 200
+    serig_exp_temperature: 3.0
+metric_defaults:
+  isc:
+    isc_num_partitions: 10
+  aic:
+    aic_num_partitions: 10
+  del:
+    del_num_workers: 20
+  local:
+    local_batch_size: 128
+  robust:
+    robust_num_perturbations: 50
+    robust_max_examples: 100
+  arobust:
+    arobust_num_restarts: 3
+    arobust_num_iterations: 100
+    arobust_num_path_points: 20
+    arobust_max_examples: 100
+  linv:
+    linv_batch_size: 512
+runtime:
+  repeats: 5
+  warmup: 2

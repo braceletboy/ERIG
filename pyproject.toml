@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "erig"
+version = "0.1.0"
+description = "Image attribution with ERIG and evaluation on ImageNet and Oxford-IIIT Pet"
+requires-python = ">=3.12"
+license = "Apache-2.0"
+dependencies = ["torch", "torchvision", "timm", "numpy", "rich", "h5py", "datasets", "transformers", "scipy", "scikit-image", "pytorch-msssim", "opencv-python", "PyYAML", "matplotlib"]
+
+[tool.setuptools.packages.find]
+include = ["erig*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["gpu: explicit CUDA execution tests"]

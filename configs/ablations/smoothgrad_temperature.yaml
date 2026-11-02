@@ -1,0 +1,119 @@
+extends: ../main.yaml
+methods:
+- smoothgrad
+datasets:
+- imagenet-1k-wds
+- imagenet-s
+models:
+- mobilenetv4
+- resnet101
+- vit
+variants:
+- name: sg_tau_0.001
+  method_options:
+    smoothgrad_base_method: erig
+    smoothgrad_num_samples: 50
+    smoothgrad_base_num_steps: 20
+    smoothgrad_base_method_compute_config:
+      erig_baseline: zero
+      erig_num_steps: 200
+      erig_exp_temperature: 0.001
+- name: sg_tau_0.003
+  method_options:
+    smoothgrad_base_method: erig
+    smoothgrad_num_samples: 50
+    smoothgrad_base_num_steps: 20
+    smoothgrad_base_method_compute_config:
+      erig_baseline: zero
+      erig_num_steps: 200
+      erig_exp_temperature: 0.003
+- name: sg_tau_0.01
+  method_options:
+    smoothgrad_base_method: erig
+    smoothgrad_num_samples: 50
+    smoothgrad_base_num_steps: 20
+    smoothgrad_base_method_compute_config:
+      erig_baseline: zero
+      erig_num_steps: 200
+      erig_exp_temperature: 0.01
+- name: sg_tau_0.03
+  method_options:
+    smoothgrad_base_method: erig
+    smoothgrad_num_samples: 50
+    smoothgrad_base_num_steps: 20
+    smoothgrad_base_method_compute_config:
+      erig_baseline: zero
+      erig_num_steps: 200
+      erig_exp_temperature: 0.03
+- name: sg_tau_0.1
+  method_options:
+    smoothgrad_base_method: erig
+    smoothgrad_num_samples: 50
+    smoothgrad_base_num_steps: 20
+    smoothgrad_base_method_compute_config:
+      erig_baseline: zero
+      erig_num_steps: 200
+      erig_exp_temperature: 0.1
+- name: sg_tau_0.3
+  method_options:
+    smoothgrad_base_method: erig
+    smoothgrad_num_samples: 50
+    smoothgrad_base_num_steps: 20
+    smoothgrad_base_method_compute_config:
+      erig_baseline: zero
+      erig_num_steps: 200
+      erig_exp_temperature: 0.3
+- name: sg_tau_3
+  method_options:
+    smoothgrad_base_method: erig
+    smoothgrad_num_samples: 50
+    smoothgrad_base_num_steps: 20
+    smoothgrad_base_method_compute_config:
+      erig_baseline: zero
+      erig_num_steps: 200
+      erig_exp_temperature: 3
+- name: sg_tau_10
+  method_options:
+    smoothgrad_base_method: erig
+    smoothgrad_num_samples: 50
+    smoothgrad_base_num_steps: 20
+    smoothgrad_base_method_compute_config:
+      erig_baseline: zero
+      erig_num_steps: 200
+      erig_exp_temperature: 10
+- name: sg_tau_30
+  method_options:
+    smoothgrad_base_method: erig
+    smoothgrad_num_samples: 50
+    smoothgrad_base_num_steps: 20
+    smoothgrad_base_method_compute_config:
+      erig_baseline: zero
+      erig_num_steps: 200
+      erig_exp_temperature: 30
+- name: sg_tau_100
+  method_options:
+    smoothgrad_base_method: erig
+    smoothgrad_num_samples: 50
+    smoothgrad_base_num_steps: 20
+    smoothgrad_base_method_compute_config:
+      erig_baseline: zero
+      erig_num_steps: 200
+      erig_exp_temperature: 100
+- name: sg_tau_300
+  method_options:
+    smoothgrad_base_method: erig
+    smoothgrad_num_samples: 50
+    smoothgrad_base_num_steps: 20
+    smoothgrad_base_method_compute_config:
+      erig_baseline: zero
+      erig_num_steps: 200
+      erig_exp_temperature: 300
+- name: sg_tau_1000
+  method_options:
+    smoothgrad_base_method: erig
+    smoothgrad_num_samples: 50
+    smoothgrad_base_num_steps: 20
+    smoothgrad_base_method_compute_config:
+      erig_baseline: zero
+      erig_num_steps: 200
+      erig_exp_temperature: 1000

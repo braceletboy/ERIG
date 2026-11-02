@@ -1,0 +1,7 @@
+datasets:
+- imagenet-1k-wds
+models:
+- resnet101
+methods:
+- erig
+eval_batch_size: 1

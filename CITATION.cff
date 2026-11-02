@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: ERIG
+message: "Please cite this software when using ERIG in your research."
+type: software
+authors:
+  - family-names: Myana
+    given-names: Rukmangadh Sai
+license: Apache-2.0
+version: 0.1.0
